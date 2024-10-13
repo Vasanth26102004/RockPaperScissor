@@ -12,6 +12,8 @@ let playerScore = document.querySelector(".playerScore");
 let computerScore = document.querySelector(".computerScore");
 let computerChoice;
 
+msg.innerHTML = "             ";
+
 function Computer() {
   computerChoice = Signs[Math.floor(Math.random() * 3)];
   return computerChoice;
@@ -19,13 +21,13 @@ function Computer() {
 
 function win() {
   msg.innerHTML = "You win! 😃";
-  msg.style.color = "lightgreen";
+  msg.style.color = "#3ee93e";
   playerScore.textContent = parseInt(playerScore.textContent) + 1;
 }
 
 function lose() {
   msg.innerHTML = "You lose! 😟";
-  msg.style.color = "tomato";
+  msg.style.color = "#e93e3e";
   computerScore.textContent = parseInt(computerScore.textContent) + 1;
 }
 
@@ -63,7 +65,7 @@ function Player(playerChoice) {
   setSign(playerChoice, computerChoice);
   if (playerChoice == computerChoice) {
     msg.textContent = "It's a tie! 🤨";
-    msg.style.color = "grey";
+    msg.style.color = "#727272";
   } else {
     switch (playerChoice) {
       case "rock":

@@ -1,64 +1,71 @@
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url("images/background.jfif");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  font-family: "Chakra Petch", sans-serif;
 }
 
-h4 {
-  font-family: "Pacifico", cursive;
-  font-size: 32px;
-  font-weight: 800;
-  font-style: normal;
-  background: linear-gradient(
-    90deg,
-    rgb(71, 71, 153),
-    rgb(122, 58, 53),
-    rgb(81, 116, 87)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 .container {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: -30px;
+  background: url("images/background.jpeg") center/cover no-repeat;
+  position: relative;
+}
+
+.container p {
+  position: relative;
+  font-size: 48px;
+  font-weight: 700;
+  color: rgb(66, 66, 66);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  padding: .5rem;
+  border-radius:15px;
+  border: 5px solid #424242;
 }
 
 .Signs {
-  width: 60%;
-  height: 220px;
+  max-width: 1000px;
+  max-height: 400px;
+  width: 70%;
+  height: 300px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   text-align: center;
-  border: 10px solid rgb(61, 61, 61);
-  padding: 5px 15px 25px;
-  border-radius: 25px;
-
-  background: rgba(231, 229, 229, 0.281);
+  padding: 2rem;
+  border: 7px solid rgb(61, 61, 61);
+  border-radius: 35px;
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
 }
 
 .message {
-  font-size: 32px;
+  font-size: 52px;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 .Player,
 .Computer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  width: 30%;
+  font-size: 42px;
   padding: 10px 25px;
 }
 
@@ -69,28 +76,39 @@ h4 {
 }
 
 .buttons {
-  width: 450px;
+  max-width: 600px;
+  width: 40%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
 }
 
 .buttons img {
+  width: 120px;
   background-color: white;
   border-radius: 15px;
+  border:5px outset grey;
+  transition: all .2s ease-in-out;
 }
 
 .restart {
   all: unset;
-  width: 150px;
-  height: 60px;
-  border: 2px solid gray;
+  width: 180px;
+  height: 80px;
+  border:5px outset grey;
   border-radius: 15px;
   background-color: rgb(219, 219, 219);
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 900;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.restart:active,
+.buttons img:active{
+  border:5px inset grey;
+  transition: all .2s ease-in-out;
 }
 
 .Result {
@@ -98,15 +116,112 @@ h4 {
 }
 
 .playerScore,
-#playerScore {
+.computerScore {
   font-family: "Rowdies", sans-serif;
   font-weight: 400;
-  color: rgb(55, 230, 55);
-  }
-.computerScore,
-#computerScore {
-  font-family: "Rowdies", sans-serif;
-  font-weight: 400;
-  color: rgb(230, 55, 55);
-  }
+}
 
+#playerScore {
+  font-size: 45px;
+  color: rgb(55, 230, 55);
+}
+
+#computerScore {
+  font-size: 45px;
+  color: rgb(230, 55, 55);
+}
+
+/* Responsive Design */
+@media (max-width: 1240px) {
+  .container p {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  #playerScore,
+  #computerScore {
+    font-size: 32px;
+  }
+  .Player,
+  .Computer {
+    scale: 0.8;
+  }
+  .buttons {
+    width: 60%;
+    scale: 0.8;
+  }
+  .message {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container p {
+    font-size: 40px;
+    font-weight: 700;
+  }
+  #playerScore,
+  #computerScore {
+    font-size: 26px;
+  }
+  .Signs{
+    height: 220px;
+    padding: .5rem;
+  }
+  .Player,
+  .Computer {
+    font-size: 32px;
+    width: 25%;
+    scale: 0.6;
+  }
+  .Player img,
+  .Computer img{
+    scale: .8;
+  } 
+  .buttons {
+    font-size: 30px;
+    width: 80%;
+    scale: 0.6;
+  }
+  .message {
+    font-size: 32px;
+  }
+}
+
+@media (max-width:480px) {
+  .container p {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  #playerScore,
+  #computerScore {
+    font-size: 20px;
+  }
+  .Signs{
+    width: 80%;
+    height: 180px;
+    padding: .5rem;
+  }
+  .Player,
+  .Computer {
+    font-size: 26px;
+    width: 20%;
+  }
+  .Player img,
+  .Computer img{
+    scale: .8;
+  } 
+  .buttons {
+    width: 400px;
+    font-size: 20px;
+    scale: .5;
+  }
+  .message {
+    font-size: 20px;
+  }
+  .restart{
+    position: absolute;
+    top: 150px;
+    left: 108px;
+    font-size: 28px;
+  }
+}
